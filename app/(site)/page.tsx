@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 
 import { HomePage } from '@/components/pages/home/HomePage'
 import { HomePagePreview } from '@/components/pages/home/HomePagePreview'
+import LandingPage from '@/components/pages/home/LandingPage'
 import { PreviewSuspense } from '@/components/preview/PreviewSuspense'
 import { PreviewWrapper } from '@/components/preview/PreviewWrapper'
 import { getHomePage } from '@/lib/sanity.client'
@@ -34,7 +35,10 @@ export default async function IndexRoute() {
 					</PreviewSuspense>
 				</>
 			) : (
-				<HomePage data={data} />
+				<>
+					<LandingPage />
+					{/* <HomePage data={data} /> */}
+				</>
 			)}
 		</>
 	)

@@ -1,25 +1,24 @@
 import './globals.css'
 
-import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import { Playfair_Display, Public_Sans } from 'next/font/google'
 
-const serif = PT_Serif({
-	variable: '--font-serif',
-	style: ['normal', 'italic'],
-	subsets: ['latin'],
-	weight: ['400', '700'],
-})
-const sans = Inter({
-	variable: '--font-sans',
-	subsets: ['latin'],
-	// @todo: understand why extrabold (800) isn't being respected when explicitly specified in this weight array
-	// weight: ['500', '700', '800'],
-})
-const mono = IBM_Plex_Mono({
-	variable: '--font-mono',
-	subsets: ['latin'],
-	weight: ['500', '700'],
+const playfair = Playfair_Display({
+	variable: '--playfair',
+	subsets: ['latin-ext'],
+	display: 'swap',
 })
 
+const public_sans = Public_Sans({
+	variable: '--public_sans',
+	subsets: ['latin-ext'],
+	display: 'swap',
+})
+
+export const metadata = {
+	title: 'Grasslands Church | Cairnlea',
+	description:
+		'You can grow in faith, hope & love with a Missional Community at Grasslands Church',
+}
 export default async function RootLayout({
 	children,
 }: {
@@ -28,7 +27,7 @@ export default async function RootLayout({
 	return (
 		<html
 			lang='en'
-			className={`${mono.variable} ${sans.variable} ${serif.variable}`}
+			className={`${playfair.variable} ${public_sans.variable} font-sans text-gray-800`}
 		>
 			<body>{children}</body>
 		</html>
