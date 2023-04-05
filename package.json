@@ -1,0 +1,92 @@
+{
+	"name": "nextjs-13-sanity-starter",
+	"author": {
+		"name": "Bryan Hickey",
+		"email": "bjh@bjh.dev"
+	},
+	"version": "1.0.0",
+	"description": "A starter for Next.js 13 and Sanity.io",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bjh-dev/nextjs-13-sanity-starter"
+	},
+	"private": true,
+	"packageManager": "pnpm@8.1.1",
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"type-check": "tsc --noEmit",
+		"lint": "eslint --ignore-path .gitignore \"**/*.+(ts|js|tsx)\"",
+		"format": "prettier --config ./prettier.config.js --ignore-path  .gitignore \"**/*.+(ts|js|tsx|css|scss|md|html|json)\" --write",
+		"postInstall": "husky install"
+	},
+	"dependencies": {
+		"@next/env": "13.2.4",
+		"@portabletext/react": "^2.0.2",
+		"@sanity/client": "5.4.2",
+		"@sanity/demo": "^1.0.2",
+		"@sanity/icons": "2.2.2",
+		"@sanity/image-url": "^1.0.2",
+		"@sanity/ui": "1.3.1",
+		"@sanity/vision": "^3.8.3",
+		"@vercel/og": "^0.0.21",
+		"classnames": "^2.3.2",
+		"date-fns": "^2.29.3",
+		"intl-segmenter-polyfill": "^0.4.4",
+		"next": "^13.2.4",
+		"next-sanity": "^4.1.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-is": "^18.2.0",
+		"sanity": "^3.8.3",
+		"sanity-plugin-asset-source-unsplash": "^1.0.6",
+		"server-only": "^0.0.1",
+		"sharp": "0.32.0",
+		"styled-components": "^5.3.9",
+		"suspend-react": "^0.0.8"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "17.5.1",
+		"@commitlint/config-conventional": "17.4.4",
+		"@tailwindcss/aspect-ratio": "0.4.2",
+		"@tailwindcss/container-queries": "0.1.1",
+		"@tailwindcss/forms": "0.5.3",
+		"@tailwindcss/typography": "^0.5.9",
+		"@types/node": "18.15.11",
+		"@types/react": "^18.0.33",
+		"@types/react-dom": "18.0.11",
+		"@typescript-eslint/eslint-plugin": "5.57.1",
+		"@typescript-eslint/parser": "5.57.1",
+		"autoprefixer": "^10.4.14",
+		"eslint": "^8.37.0",
+		"eslint-config-next": "13.0.6",
+		"eslint-config-prettier": "8.8.0",
+		"eslint-import-resolver-typescript": "3.5.4",
+		"eslint-plugin-import": "2.27.5",
+		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-react": "7.32.2",
+		"eslint-plugin-simple-import-sort": "^8.0.0",
+		"husky": "8.0.3",
+		"lint-staged": "13.2.0",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.7",
+		"prettier-plugin-css-order": "1.3.0",
+		"prettier-plugin-organize-attributes": "0.0.5",
+		"prettier-plugin-organize-imports": "3.2.2",
+		"prettier-plugin-packagejson": "^2.4.3",
+		"prettier-plugin-style-order": "0.2.2",
+		"prettier-plugin-tailwindcss": "^0.2.7",
+		"tailwindcss": "^3.3.1",
+		"typescript": "^4.9.5"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
+			"prettier --config ./prettier.config.js --write"
+		],
+		"**/*.{css,scss,md,html,json}": [
+			"prettier --config ./prettier.config.js --write"
+		]
+	}
+}
