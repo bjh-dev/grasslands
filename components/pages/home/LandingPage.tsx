@@ -6,9 +6,7 @@ const LandingPage = () => {
 		<section className='flex h-screen w-screen flex-col items-center justify-center space-y-12 bg-gray-200'>
 			<div className='text-center text-green-800'>
 				<Animation fade slideInTop delay={2} duration={1}>
-					<p className='mb-2 text-xs uppercase text-gray-400'>
-						website coming soon
-					</p>
+					<p className='mb-2 text-xs uppercase text-gray-400'>coming soon</p>
 				</Animation>
 				<Animation fade delay={0.5} duration={3}>
 					<h1 className='font-serif text-6xl font-bold tracking-tight'>
