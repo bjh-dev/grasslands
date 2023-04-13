@@ -20,7 +20,7 @@ const LandingPage = () => {
 						public launch
 					</p>
 					<h2 className='mt-1 font-sans text-4xl font-thin text-yellow-700'>
-						16 April 2023
+						May 2023
 					</h2>
 				</Animation>
 			</div>
