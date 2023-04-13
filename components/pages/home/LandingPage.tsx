@@ -16,9 +16,7 @@ const LandingPage = () => {
 					</h1>
 				</Animation>
 				<Animation fade slideInBottom delay={1} duration={1}>
-					<p className='mt-4 font-serif text-xl text-yellow-700'>
-						public launch
-					</p>
+					<p className='mt-4 font-serif text-xl text-yellow-700'>launching</p>
 					<h2 className='mt-1 font-sans text-4xl font-thin text-yellow-700'>
 						May 2023
 					</h2>
