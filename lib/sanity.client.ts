@@ -31,7 +31,7 @@ export async function getHomePage({
 }: {
 	token?: string
 }): Promise<HomePagePayload | undefined> {
-	return await sanityClient(token)?.fetch(homePageQuery, { cache: 'no-store' })
+	return await sanityClient(token)?.fetch(homePageQuery)
 }
 
 export async function getHomePageTitle({
