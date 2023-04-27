@@ -1,5 +1,5 @@
 import { HomeIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'home',
@@ -8,55 +8,54 @@ export default defineType({
 	icon: HomeIcon,
 	// Uncomment below to have edits publish automatically as you type
 	// liveEdit: true,
+	groups: [
+		{
+			name: 'content',
+			title: 'Content',
+			default: true,
+		},
+		{
+			title: 'SEO',
+			name: 'seo',
+		},
+	],
 	fields: [
 		defineField({
 			name: 'title',
 			description: 'This field is the title of your personal website.',
 			title: 'Title',
 			type: 'string',
-			validation: (rule) => rule.required(),
+			group: 'content',
 		}),
 		defineField({
 			name: 'overview',
 			description:
 				'Used both for the <meta> description tag for SEO, and the personal website subheader.',
 			title: 'Description',
+			type: 'portableTextSimple',
+			group: 'content',
+		}),
+		defineField({
+			name: 'pageContent',
+			title: 'Page Content',
 			type: 'array',
-			of: [
-				// Paragraphs
-				defineArrayMember({
-					lists: [],
-					marks: {
-						annotations: [
-							{
-								name: 'link',
-								type: 'object',
-								title: 'Link',
-								fields: [
-									{
-										name: 'href',
-										type: 'url',
-										title: 'Url',
-									},
-								],
-							},
-						],
-						decorators: [
-							{
-								title: 'Italic',
-								value: 'em',
-							},
-							{
-								title: 'Strong',
-								value: 'strong',
-							},
-						],
-					},
-					styles: [],
-					type: 'block',
-				}),
-			],
-			validation: (rule) => rule.max(155).required(),
+			group: 'content',
+			of: [{ type: 'centeredText' }],
+		}),
+		defineField({
+			name: 'pageHeader',
+			title: 'Page Header',
+			type: 'pageHeader',
+			group: 'content',
+			options: {
+				collapsible: true,
+			},
+		}),
+		defineField({
+			name: 'seo',
+			title: 'SEO',
+			type: 'seo',
+			group: 'seo',
 		}),
 	],
 	preview: {

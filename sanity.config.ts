@@ -2,6 +2,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+import { googleMapsInput } from '@sanity/google-maps-input'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
@@ -52,5 +53,11 @@ export default defineConfig({
 		// Vision lets you query your content with GROQ in the studio
 		// https://www.sanity.io/docs/the-vision-plugin
 		visionTool({ defaultApiVersion: apiVersion }),
+		googleMapsInput({
+			apiKey: process.env.NEXT_PUBLIC_GOOGLE_API as string,
+			defaultZoom: 11,
+			defaultLocale: 'en',
+			defaultLocation: { lat: -37.8136, lng: 144.9631 },
+		}),
 	],
 })

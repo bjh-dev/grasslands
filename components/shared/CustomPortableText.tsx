@@ -4,7 +4,6 @@ import { Image, PortableTextBlock } from 'sanity'
 import ImageBox from '@/components/shared/ImageBox'
 
 export function CustomPortableText({
-	paragraphClasses,
 	value,
 }: {
 	paragraphClasses?: string
@@ -13,7 +12,7 @@ export function CustomPortableText({
 	const components: PortableTextComponents = {
 		block: {
 			normal: ({ children }) => {
-				return <p className={paragraphClasses}>{children}</p>
+				return <p className='font-sans text-lg font-extralight'>{children}</p>
 			},
 		},
 		marks: {
@@ -43,7 +42,7 @@ export function CustomPortableText({
 							classesWrapper='relative aspect-[16/9]'
 						/>
 						{value?.caption && (
-							<div className='font-sans text-sm text-gray-600'>
+							<div className='text-gray-600 font-sans text-sm'>
 								{value.caption}
 							</div>
 						)}

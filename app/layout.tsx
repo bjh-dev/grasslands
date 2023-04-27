@@ -27,7 +27,7 @@ export default async function RootLayout({
 	return (
 		<html
 			lang='en'
-			className={`${playfair.variable} ${public_sans.variable} font-sans text-gray-800`}
+			className={`${playfair.variable} ${public_sans.variable} font-serif text-tuatara-800`}
 		>
 			<body>{children}</body>
 		</html>

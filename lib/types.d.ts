@@ -5,7 +5,13 @@ type Reference = {
 	title?: string
 	slug?: any
 }
-export interface MenuItem {
+
+type SimpleImageType = {
+	_type: 'simpleImage'
+	image: Image
+	alt?: string
+}
+export interface CtaType {
 	_type: 'link'
 	_key: string
 	reference?: Reference
@@ -13,11 +19,41 @@ export interface MenuItem {
 	url: string
 }
 
+type pageHeaderType = {
+	_type: 'pageHeader'
+	title: string
+	description: PortableTextBlock[]
+	image?: SimpleImageType
+	cta: CtaType
+	pageHeaderStyle: StyleType
+}
+type StyleType = {
+	_type: 'pageHeaderStyle' | 'sectionStyle'
+	selectedStyle: 'normal' | 'colour' | 'image'
+	backgroundColour?: string
+	backgroundImage?: Image
+}
+
+type SectionType = {
+	_type: 'section'
+}
+
+type CenteredTextType = {
+	_type: 'centeredText'
+	_key: string
+	title: string
+	text: PortableTextBlock[]
+	sectionStyle: StyleType
+	cta?: CtaType
+}
+
 // Page payloads
 
 export interface HomePagePayload {
 	overview?: PortableTextBlock[]
 	title?: string
+	pageHeader?: pageHeaderType
+	pageContent?: CenteredTextType[]
 }
 
 export interface PagePayload {
@@ -32,6 +68,6 @@ export interface PostPayload {
 
 export interface SettingsPayload {
 	footer?: PortableTextBlock[]
-	menuItems?: MenuItem[]
+	menuItems?: CtaType[]
 	ogImage?: Image
 }

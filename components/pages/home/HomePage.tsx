@@ -1,16 +1,19 @@
-import { Header } from '@/components/shared/Header'
+import ContentSections from '@/components/shared/ContentSections'
+import PageHeader from '@/components/shared/PageHeader'
 import ScrollUp from '@/components/shared/ScrollUp'
 import type { HomePagePayload } from '@/lib/types'
 
 export function HomePage({ data }: { data: HomePagePayload }) {
 	// Default to an empty object to allow previews on non-existent documents
-	const { overview, title } = data
-
+	const { pageHeader, pageContent } = data
+	// console.log('HomePageData: ', data)
 	return (
-		<div className='space-y-20'>
+		<div>
 			{/* Header */}
-			{title && <Header centered title={title} description={overview} />}
-			<div className='h-[1300px] bg-blue-500' />
+			<PageHeader {...pageHeader} />
+			{/* Sections */}
+			<ContentSections content={pageContent} />
+			<div className='bg-blue-500 h-[1300px]' />
 			{/* Workaround: scroll to top on route change */}
 			<ScrollUp />
 		</div>
