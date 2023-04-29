@@ -5,8 +5,8 @@ dependencies:
     specifier: 13.3.1
     version: 13.3.1
   '@portabletext/react':
-    specifier: ^2.0.2
-    version: 2.0.2(react@18.2.0)
+    specifier: ^3.0.0
+    version: 3.0.0(react@18.2.0)
   '@sanity/client':
     specifier: 5.4.2
     version: 5.4.2
@@ -1519,8 +1519,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@portabletext/react@2.0.2(react@18.2.0):
-    resolution: {integrity: sha512-8b325SwY4vAFP1Fu7coJUx/eOoenm197VnCWauJSH0zawwz6n8ouhFc5se1FKPpPPbJMqH3C+RGv2FOWQfB51A==}
+  /@portabletext/react@3.0.0(react@18.2.0):
+    resolution: {integrity: sha512-bvh9Ls3ZOa7rPOtJ2fTrTFAC6nXAwHlyt1ukFqFSgTehtsgl91WB2kaBa3XdXCBiobzED3OPcLZ3Y3fsb9ZFiQ==}
     engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
       react: ^17 || ^18
