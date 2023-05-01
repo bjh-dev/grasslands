@@ -34,9 +34,9 @@ dependencies:
   '@vercel/og':
     specifier: ^0.5.3
     version: 0.5.3
-  classnames:
-    specifier: ^2.3.2
-    version: 2.3.2
+  clsx:
+    specifier: 1.2.1
+    version: 1.2.1
   date-fns:
     specifier: ^2.29.3
     version: 2.29.3
@@ -2898,6 +2898,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /codemirror@6.0.1(@lezer/common@1.0.2):
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}

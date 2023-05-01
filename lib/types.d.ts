@@ -22,9 +22,9 @@ export interface CtaType {
 type pageHeaderType = {
 	_type: 'pageHeader'
 	title: string
-	description: PortableTextBlock[]
+	description?: PortableTextBlock[]
 	image?: SimpleImageType
-	cta: CtaType
+	cta?: CtaType
 	pageHeaderStyle: StyleType
 }
 type StyleType = {
@@ -59,6 +59,8 @@ export interface HomePagePayload {
 export interface PagePayload {
 	overview?: PortableTextBlock[]
 	title?: string
+	pageHeader?: pageHeaderType
+	pageContent?: CenteredTextType[]
 }
 
 export interface PostPayload {

@@ -36,13 +36,6 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
-			name: 'pageContent',
-			title: 'Page Content',
-			type: 'array',
-			group: 'content',
-			of: [{ type: 'centeredText' }],
-		}),
-		defineField({
 			name: 'pageHeader',
 			title: 'Page Header',
 			type: 'pageHeader',
@@ -50,6 +43,13 @@ export default defineType({
 			options: {
 				collapsible: true,
 			},
+		}),
+		defineField({
+			name: 'pageContent',
+			title: 'Page Content',
+			type: 'array',
+			group: 'content',
+			of: [{ type: 'centeredText' }],
 		}),
 		defineField({
 			name: 'seo',

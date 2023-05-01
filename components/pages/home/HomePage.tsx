@@ -13,7 +13,6 @@ export function HomePage({ data }: { data: HomePagePayload }) {
 			<PageHeader {...pageHeader} />
 			{/* Sections */}
 			<ContentSections content={pageContent} />
-			<div className='bg-blue-500 h-[1300px]' />
 			{/* Workaround: scroll to top on route change */}
 			<ScrollUp />
 		</div>

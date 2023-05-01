@@ -27,9 +27,22 @@ export const homePageTitleQuery = groq`
 
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
+    ...,
     overview,
-    slug,
     title,
+    pageHeader {
+      ...,
+      cta {
+        ...,
+       reference->{
+          ...,
+          "slug": slug.current
+        }
+      }
+    },
+    pageContent[] {
+      ...,
+    }
   }
 `
 

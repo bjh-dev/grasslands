@@ -12,7 +12,11 @@ export function CustomPortableText({
 	const components: PortableTextComponents = {
 		block: {
 			normal: ({ children }) => {
-				return <p className='font-sans text-lg font-extralight'>{children}</p>
+				return (
+					<p className='font-sans text-base font-extralight md:text-lg'>
+						{children}
+					</p>
+				)
 			},
 		},
 		marks: {

@@ -1,16 +1,15 @@
-import { Header } from '@/components/shared/Header'
+import PageHeader from '@/components/shared/PageHeader'
 import ScrollUp from '@/components/shared/ScrollUp'
 import type { PagePayload } from '@/lib/types'
 
 export function Page({ data }: { data: PagePayload }) {
 	// Default to an empty object to allow previews on non-existent documents
-	const { overview, title } = data || {}
-
+	const { pageHeader } = data || {}
 	return (
 		<div>
 			<div className='mb-14'>
 				{/* Header */}
-				<Header title={title} description={overview} />
+				<PageHeader {...pageHeader} />
 
 				{/* Body */}
 
