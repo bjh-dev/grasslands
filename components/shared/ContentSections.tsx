@@ -1,3 +1,4 @@
+import BoxedTextWithImages from '@/components/sections/BoxedTextWithImages'
 import CenteredText from '@/components/sections/CenteredText'
 
 const ContentSections = ({ content }: { content: any }) => {
@@ -11,6 +12,9 @@ const ContentSections = ({ content }: { content: any }) => {
 						switch (s._type) {
 							case 'centeredText':
 								el = <CenteredText key={i} {...s} />
+								break
+							case 'boxedTextWithImages':
+								el = <BoxedTextWithImages key={i} {...s} />
 								break
 							default:
 								el = null

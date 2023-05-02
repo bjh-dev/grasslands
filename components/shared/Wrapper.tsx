@@ -50,6 +50,7 @@ const Wrapper = ({
 			className={clsx({
 				'bg-[#000000] bg-opacity-50 bg-cover bg-center bg-no-repeat py-36 bg-blend-multiply':
 					bgImage,
+				'py-24': !bgImage,
 
 				'text-satin-linen': style?.backgroundColour == '#48623E',
 			})}

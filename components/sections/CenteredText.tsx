@@ -1,9 +1,8 @@
+import CtaLink from '@/components/shared/CtaLink'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { SectionTitle } from '@/components/shared/Typography'
+import Wrapper from '@/components/shared/Wrapper'
 import { CenteredTextType } from '@/lib/types'
-
-import CtaLink from '../shared/CtaLink'
-import { CustomPortableText } from '../shared/CustomPortableText'
-import { SectionTitle } from '../shared/Typography'
-import Wrapper from '../shared/Wrapper'
 
 const CenteredText = ({ title, text, cta, sectionStyle }: CenteredTextType) => {
 	return (
