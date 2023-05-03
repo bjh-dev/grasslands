@@ -1,6 +1,6 @@
 import CtaLink from '@/components/shared/CtaLink'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { SectionTitle } from '@/components/shared/Typography'
+import { SectionHeading } from '@/components/shared/Typography'
 import Wrapper from '@/components/shared/Wrapper'
 import { CenteredTextType } from '@/lib/types'
 
@@ -11,7 +11,7 @@ const CenteredText = ({ title, text, cta, sectionStyle }: CenteredTextType) => {
 				<div className='container'>
 					<div className='flex flex-col space-y-12 text-center'>
 						<div className='mx-auto max-w-lg'>
-							<SectionTitle title={title} />
+							<SectionHeading heading={title} />
 						</div>
 						<div className='mx-auto max-w-4xl'>
 							<CustomPortableText value={text} />

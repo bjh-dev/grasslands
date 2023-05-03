@@ -2,7 +2,7 @@ import BoxedTextWithImages from '@/components/sections/BoxedTextWithImages'
 import CenteredText from '@/components/sections/CenteredText'
 
 const ContentSections = ({ content }: { content: any }) => {
-	console.log('ContentSections: ', content)
+	// console.log('ContentSections: ', content)
 	return (
 		<>
 			<section className='sections flex flex-col'>

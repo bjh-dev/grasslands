@@ -6,3 +6,23 @@
 #all-fields-tab {
 	display: none !important;
 }
+
+.react-player__preview {
+	overflow: hidden !important;
+}
+.react-player__preview img {
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0.8;
+}
+.react-player__shadow {
+	transition: scale 0.3s ease-in-out;
+	background: #ff0000 !important;
+}
+.react-player__preview:hover img {
+	opacity: 1;
+}
+.react-player__preview:hover .react-player__shadow {
+	scale: 1.1;
+}
+. .react-player__play-icon {
+}
