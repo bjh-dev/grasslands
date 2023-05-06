@@ -26,10 +26,5 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'simpleImage' }],
 		}),
-		defineField({
-			name: 'sectionStyle',
-			title: 'Section Style',
-			type: 'sectionStyle',
-		}),
 	],
 })

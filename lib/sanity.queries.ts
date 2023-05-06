@@ -72,6 +72,14 @@ export const settingsQuery = groq`
         title,
         "slug": slug.current,
       }
+    },
+    footerMenuItems[] {
+      ...,
+      reference->{
+        _type,
+        title,
+        "slug": slug.current,
+      }
     }
   }
 `

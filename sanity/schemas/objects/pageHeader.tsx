@@ -10,9 +10,15 @@ export default defineType({
 		defineField({
 			name: 'title',
 			title: 'Hero Title',
-			description: 'The title for the page hero section',
+			description: 'The short title for the page hero section',
 			type: 'string',
 			validation: (Rule) => Rule.required(),
+		}),
+		defineField({
+			name: 'heading',
+			title: 'Heading',
+			description: 'The larger, descriptive text for the page hero section',
+			type: 'string',
 		}),
 		defineField({
 			name: 'description',

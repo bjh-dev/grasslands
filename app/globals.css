@@ -35,3 +35,10 @@
 #the-planting-project h3 {
 	@apply text-axolotl;
 }
+
+.footer-cutomportabletext a {
+	@apply text-axolotl;
+}
+.footer-cutomportabletext a:hover {
+	@apply text-rope;
+}

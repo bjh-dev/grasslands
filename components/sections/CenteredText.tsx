@@ -8,13 +8,14 @@ type CenteredTextProps = {
 	_type: 'centeredText'
 	_key: string
 	title: string
+	heading?: string
 	text: PortableTextBlock[]
 	sectionStyle: StyleType
 	cta?: CtaType
 }
 
 const CenteredText = (props: CenteredTextProps) => {
-	const { title, text, cta, sectionStyle } = props
+	const { title, text, heading, cta, sectionStyle } = props
 	// console.log('CenteredText: ', props)
 	return (
 		<>
@@ -22,7 +23,7 @@ const CenteredText = (props: CenteredTextProps) => {
 				<div className='container relative max-w-3xl'>
 					<SectionHeader
 						title={title}
-						heading={null}
+						heading={heading}
 						text={text}
 						cta={cta}
 						style={sectionStyle}

@@ -14,15 +14,18 @@ type BoxWithImagesProps = {
 	text: PortableTextBlock[]
 	cta: CtaType
 	images: SimpleImageType[]
-	sectionStyle: StyleType
+	sectionStyle?: StyleType
 }
 
 const BoxedTextWithImages = (props: BoxWithImagesProps) => {
-	const { title, heading, cta, text, images, sectionStyle } = props
+	const { title, heading, cta, text, images } = props
 	// console.log('BoxedTextWithImages: ', props)
 
 	return (
-		<Wrapper style={sectionStyle} title={title ? title : null}>
+		<Wrapper
+			style={{ _type: 'sectionStyle', selectedStyle: 'normal' }}
+			title={title ? title : null}
+		>
 			<div className='container mt-12'>
 				<div className='flex flex-col space-y-6 lg:grid lg:grid-cols-2 lg:gap-x-12 2xl:gap-x-24'>
 					<div className='col-span-1'>
@@ -48,13 +51,18 @@ const BoxedTextWithImages = (props: BoxWithImagesProps) => {
 						</div>
 					</div>
 					<div className='col-span-1 bg-indian-khaki-600 shadow-lg'>
-						<div className='m-6 -mb-4 -ml-2 flex items-center bg-axolotl px-12 py-6 text-indian-khaki-50 shadow-lg sm:-ml-4 sm:p-16 xl:h-full'>
+						<div className='m-6 -mb-4 -ml-2 flex items-center bg-axolotl px-12 py-6 shadow-lg sm:-ml-4 sm:p-16 xl:h-full'>
 							<SectionHeader
 								title={title}
 								heading={heading}
 								text={text}
 								cta={cta}
-								style={sectionStyle}
+								// As thee background is normal for this section we need to pass the style object
+								style={{
+									_type: 'sectionStyle',
+									backgroundColour: '#48623E',
+									selectedStyle: 'colour',
+								}}
 							/>
 						</div>
 					</div>

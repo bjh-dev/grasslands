@@ -7,6 +7,11 @@ export default defineType({
 	fields: [
 		defineField({
 			name: 'title',
+			title: 'Title',
+			type: 'string',
+		}),
+		defineField({
+			name: 'heading',
 			title: 'Heading',
 			type: 'string',
 		}),
@@ -36,6 +41,11 @@ export default defineType({
 					],
 				},
 			],
+		}),
+		defineField({
+			name: 'cta',
+			title: 'Call to Action',
+			type: 'link',
 		}),
 		defineField({
 			name: 'sectionStyle',

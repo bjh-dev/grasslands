@@ -22,14 +22,14 @@ export function CustomPortableText({
 		},
 		listItem: {
 			bullet: ({ children }) => {
-				return <li className='mb-2'>{children}</li>
+				return <li className='mb-2 ml-4'>{children}</li>
 			},
 		},
 		marks: {
 			link: ({ children, value }) => {
 				return (
 					<a
-						className='underline transition hover:opacity-50'
+						className='underline transition-all duration-300 ease-in-out'
 						href={value?.href}
 						rel='noreferrer noopener'
 					>

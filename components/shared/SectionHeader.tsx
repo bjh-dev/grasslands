@@ -21,36 +21,53 @@ const SectionHeader = (props: SectionHeaderProps) => {
 	return (
 		<div className='flex flex-col space-y-6'>
 			<div>
-				{heading && <SectionTitle title={title} />}
-				<span
-					className={clsx({
+				<div
+					className={clsx('mb-4', {
+						'text-axolotl-700': style.selectedStyle == 'normal',
 						'items-center text-center': center,
-						'text-rope-900': style.backgroundColour == '#ECE5D5',
-						'text-axolotl-800': style.backgroundColour == '#C4B08F',
-						'text-indian-khaki': style.backgroundColour == '#383637',
-						'text-tuatara-800': style.backgroundColour == '#F7C548',
-						'text-indian-khaki-50': style.backgroundColour == '#9B5A30',
-						'text-indian-khaki-400': style?.backgroundColour == '#48623E',
+						'satin-linen text-axolotl': style.backgroundColour == '#ECE5D5',
+						'indian-khaki text-axolotl-800':
+							style.backgroundColour == '#C4B08F',
+						'tautara text-indian-khaki': style.backgroundColour == '#383637',
+						'ronchi text-tuatara-800': style.backgroundColour == '#F7C548',
+						'rope text-indian-khaki-50': style.backgroundColour == '#9B5A30',
+						'axolotl text-indian-khaki-50':
+							style?.backgroundColour == '#48623E',
+					})}
+				>
+					{heading && <SectionTitle title={title} />}
+				</div>
+				<div
+					className={clsx({
+						'text-tuatara-800': style.selectedStyle == 'normal',
+						'items-center text-center': center,
+						'satin-linen text-rope-700': style.backgroundColour == '#ECE5D5',
+						'indian-khaki text-axolotl-800':
+							style.backgroundColour == '#C4B08F',
+						'tautara text-indian-khaki': style.backgroundColour == '#383637',
+						'ronchi text-tuatara-800': style.backgroundColour == '#F7C548',
+						'rope text-indian-khaki-50': style.backgroundColour == '#9B5A30',
+						'axolotl text-indian-khaki': style?.backgroundColour == '#48623E',
 					})}
 				>
 					<SectionHeading heading={heading ? heading : title} />
-				</span>
+				</div>
 			</div>
 			<div
 				className={clsx({
 					'items-center text-center': center,
-					'text-rope-900': style.backgroundColour == '#ECE5D5',
-					'text-axolotl-800': style.backgroundColour == '#C4B08F',
-					'text-indian-khaki': style.backgroundColour == '#383637',
-					'text-tuatara-800': style.backgroundColour == '#F7C548',
-					'text-indian-khaki-50': style.backgroundColour == '#9B5A30',
-					'text-indian-khaki-400': style?.backgroundColour == '#48623E',
+					'satin-linen text-tuatara-800': style.backgroundColour == '#ECE5D5',
+					'indian-khaki text-axolotl-800': style.backgroundColour == '#C4B08F',
+					'tautara text-indian-khaki': style.backgroundColour == '#383637',
+					'ronchi text-tuatara-800': style.backgroundColour == '#F7C548',
+					'rope text-indian-khaki-50': style.backgroundColour == '#9B5A30',
+					'axolotl text-indian-khaki-50': style?.backgroundColour == '#48623E',
 				})}
 			>
 				<CustomPortableText value={text} />
 			</div>
 			{cta && (cta.reference || cta.url) && (
-				<div>
+				<div className='block py-6'>
 					<CtaLink {...cta} />
 				</div>
 			)}

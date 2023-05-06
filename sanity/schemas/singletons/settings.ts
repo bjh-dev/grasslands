@@ -8,17 +8,17 @@ export default defineType({
 	icon: CogIcon,
 	groups: [
 		{
+			title: 'Site',
+			name: 'site',
+			default: true,
+		},
+		{
 			title: 'Navigation',
 			name: 'navigation',
-			default: true,
 		},
 		{
 			title: 'Footer',
 			name: 'footer',
-		},
-		{
-			name: 'contact',
-			title: 'Contact',
 		},
 		{
 			name: 'social',
@@ -31,9 +31,16 @@ export default defineType({
 		defineField({
 			name: 'siteLogo',
 			title: 'Site Logo',
-			description: 'The logo displayed on the header of your site.',
+			description: 'The primary logo used throughout the site.',
 			type: 'simpleImage',
-			group: 'navigation',
+			group: 'site',
+		}),
+		defineField({
+			name: 'siteIcon',
+			title: 'Site Icon',
+			description: 'The icon used throughout the site.',
+			type: 'simpleImage',
+			group: 'site',
 		}),
 		defineField({
 			name: 'menuItems',
@@ -49,13 +56,6 @@ export default defineType({
 			description: 'The call to action displayed on the header of your site.',
 			type: 'link',
 			group: 'navigation',
-		}),
-		defineField({
-			name: 'footerLogo',
-			title: 'Footer Logo',
-			description: 'The logo displayed on the footer of your site.',
-			type: 'simpleImage',
-			group: 'footer',
 		}),
 		defineField({
 			name: 'footerMenuItems',
@@ -82,13 +82,13 @@ export default defineType({
 		defineField({
 			name: 'postalAddress',
 			title: 'Postal Address',
-			group: 'contact',
+			group: 'site',
 			type: 'address',
 		}),
 		defineField({
 			name: 'physicalAddress',
 			title: 'Physical Address',
-			group: 'contact',
+			group: 'site',
 			type: 'address',
 		}),
 		defineField({
@@ -96,7 +96,7 @@ export default defineType({
 			title: 'Geolocation',
 			description: 'Used for Google Maps',
 			type: 'geopoint',
-			group: 'contact',
+			group: 'site',
 			options: {
 				geocoding: true,
 			},
@@ -106,14 +106,14 @@ export default defineType({
 			title: 'Phone',
 			description: 'Your primary phone number',
 			type: 'string',
-			group: 'contact',
+			group: 'site',
 		}),
 		defineField({
 			name: 'email',
 			title: 'Email',
 			description: 'Your primary email address',
 			type: 'string',
-			group: 'contact',
+			group: 'site',
 		}),
 		defineField({
 			name: 'socialLinks',

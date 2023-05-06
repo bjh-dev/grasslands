@@ -40,7 +40,7 @@ const FormBuilder = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className='relative grid grid-cols-2 gap-y-4 rounded-lg border-2 border-tuatara-50 p-6'
+			className='relative grid grid-cols-2 gap-x-2 gap-y-4 rounded-lg border-2 border-tuatara-50 p-6'
 		>
 			{formState !== 'success' && (
 				<>

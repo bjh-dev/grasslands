@@ -18,7 +18,8 @@ const Wrapper = ({
 	title?: string
 	center?: boolean
 }) => {
-	const bgImage = style?.selectedStyle === 'image'
+	const bgImage =
+		style?.selectedStyle === 'image' && style.backgroundImage ? true : false
 	if (pageHeader) {
 		return (
 			<header
@@ -26,7 +27,7 @@ const Wrapper = ({
 				style={{
 					backgroundImage: bgImage
 						? `url(${urlForImage(style?.backgroundImage).url()})`
-						: 'none',
+						: null,
 				}}
 				className={clsx('relative z-0', {
 					'bg-[#000000] bg-opacity-50 bg-cover bg-center bg-no-repeat py-12 bg-blend-multiply':
@@ -55,6 +56,7 @@ const Wrapper = ({
 			}}
 			className={clsx('relative z-0', {
 				'text-center': center,
+				'pb-40 md:pb-56': title == 'Church Planting',
 				'bg-[#000000] bg-opacity-50 bg-cover bg-center bg-no-repeat py-36 bg-blend-multiply':
 					bgImage,
 				'py-24': style.selectedStyle === 'normal',
@@ -68,7 +70,7 @@ const Wrapper = ({
 			})}
 		>
 			{children}
-			{title == 'The Planting Project' && (
+			{title == 'Church Planting' && (
 				<>
 					<Image
 						className='absolute bottom-0 w-full'

@@ -15,11 +15,11 @@ type FormProps = {
 
 const Form = (props: FormProps) => {
 	const { title, heading, text, formBuilder, sectionStyle } = props
-	console.log('formProps :', props)
+	// console.log('formProps :', props)
 	return (
 		<Wrapper style={sectionStyle} title={'Form'}>
 			<div className='container'>
-				<div className='flex flex-col space-y-6 lg:grid lg:grid-cols-2 lg:space-y-0'>
+				<div className='flex flex-col space-y-6 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:space-y-0'>
 					<div className='col-span-1'>
 						<SectionHeader
 							title={title}

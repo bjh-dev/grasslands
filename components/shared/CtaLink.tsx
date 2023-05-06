@@ -12,7 +12,7 @@ const CtaLink = (props: CtaType) => {
 	if (reference) {
 		return (
 			<Link
-				className='rounded-md bg-axolotl px-6 py-3 font-sans text-sm tracking-wide text-satin-linen-200 hover:bg-axolotl-600'
+				className='inline-block rounded-md bg-axolotl px-6 py-3 font-sans text-sm tracking-wide text-satin-linen-200 hover:bg-axolotl-600'
 				href={reference.slug}
 				onClick={() => router.push(`/${reference.slug}`)}
 			>

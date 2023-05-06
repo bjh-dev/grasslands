@@ -10,6 +10,10 @@ const config = {
 		removeConsole: process.env.NODE_ENV === 'production',
 	},
 	images: {
+		dangerouslyAllowSVG: true,
+		contentDispositionType: 'attachment',
+		// eslint-disable-next-line quotes
+		contentSecurityPolicy: "'default-src 'self'; script-src 'none'; sandbox;'",
 		remotePatterns: [
 			{ hostname: 'cdn.sanity.io' },
 			{ hostname: 'source.unsplash.com' },

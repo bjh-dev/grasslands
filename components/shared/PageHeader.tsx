@@ -5,22 +5,23 @@ import { PortableTextBlock } from 'sanity'
 import CtaLink from '@/components/shared/CtaLink'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import Divider from '@/components/shared/Divider'
-import { PageTitle } from '@/components/shared/Typography'
+import { PageHeading, PageTitle } from '@/components/shared/Typography'
 import Wrapper from '@/components/shared/Wrapper'
 import { urlForImage } from '@/lib/sanity.image'
-import { CtaType, SimpleImageType, StyleType } from '@/lib/types'
+import { LinkType, SimpleImageType, StyleType } from '@/lib/types'
 
 type PageHeaderProps = {
 	_type: 'pageHeader'
 	title: string
+	heading?: string
 	description?: PortableTextBlock[]
 	image?: SimpleImageType
-	cta?: CtaType
+	cta?: LinkType
 	pageHeaderStyle: StyleType
 }
 
 const PageHeader = (props: PageHeaderProps) => {
-	const { title, description, cta, pageHeaderStyle, image } = props
+	const { title, heading, description, cta, pageHeaderStyle, image } = props
 	// console.log('pageHeaderProps: ', props)
 	return (
 		<Wrapper style={pageHeaderStyle} pageHeader>
@@ -28,6 +29,7 @@ const PageHeader = (props: PageHeaderProps) => {
 				<div className='container'>
 					<div className='mx-auto flex max-w-3xl flex-col text-center'>
 						<PageTitle title={title} />
+						<PageHeading heading={heading} />
 						<Divider style={pageHeaderStyle} />
 						<CustomPortableText value={description} />
 						{cta && <CtaLink {...cta} />}
@@ -58,6 +60,7 @@ const PageHeader = (props: PageHeaderProps) => {
 									width={450}
 									height={550}
 									className='mx-auto translate-y-0 object-cover object-center'
+									priority
 								/>
 								{/* <div className='hidden h-96 w-64 -translate-y-[20rem] translate-x-[15rem] border-4 border-axolotl md:block md:translate-x-[5rem] xl:-translate-y-[22rem] xl:translate-x-[10rem] 2xl:translate-x-[15rem]' /> */}
 							</>
@@ -65,7 +68,46 @@ const PageHeader = (props: PageHeaderProps) => {
 					</div>
 					<div className='mx-auto flex max-w-3xl flex-col space-y-6 pb-12 sm:space-y-12'>
 						<div>
-							<PageTitle title={title} />
+							<div
+								className={clsx('mb-4', {
+									'text-rope': pageHeaderStyle.selectedStyle == 'image',
+									'text-axolotl-700': pageHeaderStyle.selectedStyle == 'normal',
+									'satin-linen text-axolotl':
+										pageHeaderStyle.backgroundColour == '#ECE5D5',
+									'indian-khaki text-axolotl-800':
+										pageHeaderStyle.backgroundColour == '#C4B08F',
+									'tautara text-indian-khaki':
+										pageHeaderStyle.backgroundColour == '#383637',
+									'ronchi text-tuatara-800':
+										pageHeaderStyle.backgroundColour == '#F7C548',
+									'rope text-indian-khaki-50':
+										pageHeaderStyle.backgroundColour == '#9B5A30',
+									'axolotl text-indian-khaki-50':
+										pageHeaderStyle.backgroundColour == '#48623E',
+								})}
+							>
+								<PageTitle title={title} />
+							</div>
+							<div
+								className={clsx({
+									'text-tuatara-700': pageHeaderStyle.selectedStyle == 'image',
+									'text-tuatara-800': pageHeaderStyle.selectedStyle == 'normal',
+									'satin-linen text-rope-700':
+										pageHeaderStyle.backgroundColour == '#ECE5D5',
+									'indian-khaki text-axolotl-800':
+										pageHeaderStyle.backgroundColour == '#C4B08F',
+									'tautara text-indian-khaki':
+										pageHeaderStyle.backgroundColour == '#383637',
+									'ronchi text-tuatara-800':
+										pageHeaderStyle.backgroundColour == '#F7C548',
+									'rope text-indian-khaki-50':
+										pageHeaderStyle.backgroundColour == '#9B5A30',
+									'axolotl text-indian-khaki':
+										pageHeaderStyle.backgroundColour == '#48623E',
+								})}
+							>
+								<PageHeading heading={heading} />
+							</div>
 						</div>
 						<Divider style={pageHeaderStyle} />
 						<CustomPortableText value={description} />
