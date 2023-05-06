@@ -6,13 +6,13 @@
 #all-fields-tab {
 	display: none !important;
 }
-
 .react-player__preview {
 	overflow: hidden !important;
+	background: #000000 !important;
 }
 .react-player__preview img {
-	transition: opacity 0.3s ease-in-out;
 	opacity: 0.8;
+	transition: opacity 0.3s ease-in-out;
 }
 .react-player__shadow {
 	transition: scale 0.3s ease-in-out;
@@ -24,5 +24,14 @@
 .react-player__preview:hover .react-player__shadow {
 	scale: 1.1;
 }
-. .react-player__play-icon {
+.react-player__play-icon {
+}
+
+#the-planting-project {
+	@apply bg-contain bg-bottom
+  bg-repeat-x pb-48 pt-24;
+}
+
+#the-planting-project h3 {
+	@apply text-axolotl;
 }

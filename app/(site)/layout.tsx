@@ -1,4 +1,4 @@
-import { Footer } from '@/components/global/Footer'
+import Footer from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
 import { PreviewBanner } from '@/components/preview/PreviewBanner'
 import { getSettings } from '@/lib/sanity.client'
@@ -19,7 +19,7 @@ export default async function IndexRoute({
 				{token && <PreviewBanner />}
 				<Navbar menuItems={settings.menuItems} />
 				<div>{children}</div>
-				<Footer footer={settings.footer} />
+				<Footer {...settings} />
 			</div>
 		</>
 	)

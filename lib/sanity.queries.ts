@@ -17,6 +17,13 @@ export const homePageQuery = groq`
     },
     pageContent[] {
       ...,
+      cta {
+        ...,
+        reference->{
+          ...,
+          "slug": slug.current
+        }
+      }
     }
   }
 `
@@ -42,6 +49,7 @@ export const pagesBySlugQuery = groq`
     },
     pageContent[] {
       ...,
+
     }
   }
 `

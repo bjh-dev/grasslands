@@ -11,7 +11,7 @@ type SimpleImageType = {
 	image: Image
 	alt?: string
 }
-export interface CtaType {
+type CtaType = {
 	_type: 'link'
 	_key: string
 	reference?: Reference
@@ -19,14 +19,6 @@ export interface CtaType {
 	url: string
 }
 
-type pageHeaderType = {
-	_type: 'pageHeader'
-	title: string
-	description?: PortableTextBlock[]
-	image?: SimpleImageType
-	cta?: CtaType
-	pageHeaderStyle: StyleType
-}
 type StyleType = {
 	_type: 'pageHeaderStyle' | 'sectionStyle'
 	selectedStyle: 'normal' | 'colour' | 'image'
@@ -37,16 +29,6 @@ type StyleType = {
 type SectionType = {
 	_type: 'section'
 }
-
-type CenteredTextType = {
-	_type: 'centeredText'
-	_key: string
-	title: string
-	text: PortableTextBlock[]
-	sectionStyle: StyleType
-	cta?: CtaType
-}
-
 // Page payloads
 
 export interface HomePagePayload {

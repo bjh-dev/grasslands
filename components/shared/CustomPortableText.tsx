@@ -12,11 +12,17 @@ export function CustomPortableText({
 	const components: PortableTextComponents = {
 		block: {
 			normal: ({ children }) => {
-				return (
-					<p className='font-sans text-base font-extralight md:text-lg'>
-						{children}
-					</p>
-				)
+				return <p className='mb-3'>{children}</p>
+			},
+		},
+		list: {
+			bullet: ({ children }) => {
+				return <ul className='list-outside list-disc'>{children}</ul>
+			},
+		},
+		listItem: {
+			bullet: ({ children }) => {
+				return <li className='mb-2'>{children}</li>
 			},
 		},
 		marks: {

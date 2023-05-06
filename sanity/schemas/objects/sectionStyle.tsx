@@ -22,6 +22,7 @@ export default defineType({
 			name: 'selectedStyle',
 			title: 'Selected Style',
 			type: 'string',
+			initialValue: 'normal',
 			options: {
 				layout: 'radio',
 				direction: 'horizontal',

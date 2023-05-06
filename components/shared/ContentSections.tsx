@@ -1,5 +1,8 @@
 import BoxedTextWithImages from '@/components/sections/BoxedTextWithImages'
 import CenteredText from '@/components/sections/CenteredText'
+import Form from '@/components/sections/Form'
+import Steps from '@/components/sections/Steps'
+import TextWithVideo from '@/components/sections/TextWithVideo'
 
 const ContentSections = ({ content }: { content: any }) => {
 	// console.log('ContentSections: ', content)
@@ -15,6 +18,15 @@ const ContentSections = ({ content }: { content: any }) => {
 								break
 							case 'boxedTextWithImages':
 								el = <BoxedTextWithImages key={i} {...s} />
+								break
+							case 'textWithVideo':
+								el = <TextWithVideo key={i} {...s} />
+								break
+							case 'steps':
+								el = <Steps key={i} {...s} />
+								break
+							case 'form':
+								el = <Form key={i} {...s} />
 								break
 							default:
 								el = null

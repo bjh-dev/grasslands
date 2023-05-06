@@ -6,7 +6,7 @@ const Divider = ({ style }: { style: StyleType }) => {
 	return (
 		<>
 			<div
-				className={clsx('mx-auto ml-0 mr-auto w-1/4 border-b-4 xl:mx-auto', {
+				className={clsx('w-1/4 border-b-4', {
 					'border-rope': style.backgroundColour == '#ECE5D5',
 					'border-satin-linen': style.backgroundColour == '#C4B08F',
 					'border-satin-linen-400': style.backgroundColour == '#383637',

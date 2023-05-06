@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import Image from 'next/image'
+import { PortableTextBlock } from 'sanity'
 
 import CtaLink from '@/components/shared/CtaLink'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -7,12 +8,20 @@ import Divider from '@/components/shared/Divider'
 import { PageTitle } from '@/components/shared/Typography'
 import Wrapper from '@/components/shared/Wrapper'
 import { urlForImage } from '@/lib/sanity.image'
-import { pageHeaderType } from '@/lib/types'
+import { CtaType, SimpleImageType, StyleType } from '@/lib/types'
 
-const PageHeader = (props: pageHeaderType) => {
+type PageHeaderProps = {
+	_type: 'pageHeader'
+	title: string
+	description?: PortableTextBlock[]
+	image?: SimpleImageType
+	cta?: CtaType
+	pageHeaderStyle: StyleType
+}
+
+const PageHeader = (props: PageHeaderProps) => {
 	const { title, description, cta, pageHeaderStyle, image } = props
 	// console.log('pageHeaderProps: ', props)
-	console.log(pageHeaderStyle)
 	return (
 		<Wrapper style={pageHeaderStyle} pageHeader>
 			{!image && (
@@ -54,13 +63,13 @@ const PageHeader = (props: pageHeaderType) => {
 							</>
 						)}
 					</div>
-					<div className='mx-auto flex max-w-3xl flex-col space-y-6 pb-12 text-left sm:space-y-12 xl:text-center'>
+					<div className='mx-auto flex max-w-3xl flex-col space-y-6 pb-12 sm:space-y-12'>
 						<div>
 							<PageTitle title={title} />
 						</div>
 						<Divider style={pageHeaderStyle} />
 						<CustomPortableText value={description} />
-						{cta && (
+						{cta && (cta.reference || cta.url) && (
 							<div>
 								<CtaLink {...cta} />
 							</div>

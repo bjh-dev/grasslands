@@ -1,27 +1,32 @@
-import CtaLink from '@/components/shared/CtaLink'
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { SectionHeading } from '@/components/shared/Typography'
-import Wrapper from '@/components/shared/Wrapper'
-import { CenteredTextType } from '@/lib/types'
+import { PortableTextBlock } from 'sanity'
 
-const CenteredText = ({ title, text, cta, sectionStyle }: CenteredTextType) => {
+import SectionHeader from '@/components/shared/SectionHeader'
+import Wrapper from '@/components/shared/Wrapper'
+import { CtaType, StyleType } from '@/lib/types'
+
+type CenteredTextProps = {
+	_type: 'centeredText'
+	_key: string
+	title: string
+	text: PortableTextBlock[]
+	sectionStyle: StyleType
+	cta?: CtaType
+}
+
+const CenteredText = (props: CenteredTextProps) => {
+	const { title, text, cta, sectionStyle } = props
+	// console.log('CenteredText: ', props)
 	return (
 		<>
-			<Wrapper style={sectionStyle}>
-				<div className='container'>
-					<div className='flex flex-col space-y-12 text-center'>
-						<div className='mx-auto max-w-lg'>
-							<SectionHeading heading={title} />
-						</div>
-						<div className='mx-auto max-w-4xl'>
-							<CustomPortableText value={text} />
-						</div>
-						{cta && (
-							<div>
-								<CtaLink {...cta} />
-							</div>
-						)}
-					</div>
+			<Wrapper style={sectionStyle} title={title ? title : null} center>
+				<div className='container relative max-w-3xl'>
+					<SectionHeader
+						title={title}
+						heading={null}
+						text={text}
+						cta={cta}
+						style={sectionStyle}
+					/>
 				</div>
 			</Wrapper>
 		</>

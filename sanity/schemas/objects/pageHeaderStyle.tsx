@@ -15,8 +15,12 @@ const colourList = Object.keys(tailwindConfig.theme.colors)
 
 export default defineType({
 	name: 'pageHeaderStyle',
-	title: 'Page Header Styles',
+	title: 'Style',
 	type: 'object',
+	options: {
+		collapsible: true,
+		collapsed: true,
+	},
 	fields: [
 		defineField({
 			name: 'selectedStyle',

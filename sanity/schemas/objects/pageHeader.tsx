@@ -2,36 +2,38 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'pageHeader',
-	title: 'Page Header',
+	title: 'Page Hero',
 	type: 'object',
+	description:
+		'The hero section of the page is the first thing a user sees when they visit the page. It should be used to introduce the page and provide a call to action.',
 	fields: [
 		defineField({
 			name: 'title',
-			title: 'Title',
-			description: 'The title for the page header',
+			title: 'Hero Title',
+			description: 'The title for the page hero section',
 			type: 'string',
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'description',
-			title: 'Description',
-			description: 'The description for the page header',
+			title: 'Hero Text',
+			description: 'The description for the page hero section',
 			type: 'portableTextSimple',
 		}),
 		defineField({
 			name: 'image',
-			title: 'Image',
+			title: 'Hero Image',
 			type: 'simpleImage',
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'cta',
-			title: 'Call to Action',
+			title: 'Call to Action Button',
 			type: 'link',
 		}),
 		defineField({
 			name: 'pageHeaderStyle',
-			title: 'Page Header Style',
+			title: 'Style, Colour and Background Images',
 			type: 'pageHeaderStyle',
 		}),
 	],

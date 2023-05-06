@@ -49,7 +49,13 @@ export default defineType({
 			title: 'Page Content',
 			type: 'array',
 			group: 'content',
-			of: [{ type: 'centeredText' }, { type: 'boxedTextWithImages' }],
+			of: [
+				{ type: 'centeredText' },
+				{ type: 'boxedTextWithImages' },
+				{ type: 'textWithVideo' },
+				{ type: 'steps' },
+				{ type: 'form' },
+			],
 		}),
 		defineField({
 			name: 'seo',

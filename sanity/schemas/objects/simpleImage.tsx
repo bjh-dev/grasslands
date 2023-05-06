@@ -6,16 +6,10 @@ export default defineType({
 	title: 'Image',
 	type: 'object',
 	icon: HiPhotograph,
-	fieldsets: [
-		{
-			name: 'text',
-			title: 'Text',
-			options: {
-				collapsible: true,
-				collapsed: false,
-			},
-		},
-	],
+	options: {
+		collapsible: true,
+		collapsed: true,
+	},
 	fields: [
 		defineField({
 			name: 'image',
@@ -42,7 +36,6 @@ export default defineType({
 						: 'Alternative text is helpful for accessibility and SEO'
 				}),
 			hidden: ({ parent }) => !parent?.image,
-			fieldset: 'text',
 		}),
 	],
 	preview: {

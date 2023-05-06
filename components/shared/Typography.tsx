@@ -1,6 +1,6 @@
 export const PageTitle = ({ title }: { title: string }) => {
 	return (
-		<h1 className='text-5xl font-bold sm:text-6xl md:text-7xl lg:text-7xl'>
+		<h1 className='font-serif text-5xl font-bold sm:text-6xl md:text-7xl lg:text-7xl'>
 			{title}
 		</h1>
 	)
@@ -14,6 +14,6 @@ export const SectionTitle = ({ title }: { title: string }) => {
 
 export const SectionHeading = ({ heading }: { heading: string }) => {
 	return (
-		<h3 className='text-5xl font-bold md:text-6xl lg:text-5xl'>{heading}</h3>
+		<h3 className='font-serif text-5xl font-bold md:text-7xl'>{heading}</h3>
 	)
 }

@@ -17,29 +17,37 @@ const playerConfig = {
 	},
 }
 
-const Video = (props) => {
+type VideoProps = {
+	video: string
+	thumbnail: string
+	altText: string
+}
+
+const Video = (props: VideoProps) => {
 	const [hasWindow, setHasWindow] = useState(false)
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			setHasWindow(true)
 		}
 	}, [])
-	const { video, thumbnail } = props
+	const { video, thumbnail, altText } = props
 
 	return (
-		<div className='aspect-h-9 aspect-w-16'>
-			{hasWindow && (
-				<ReactPlayer
-					className='react-player rounded-lg'
-					url={video}
-					width='100%'
-					height='100%'
-					light={
-						<Image src={thumbnail} alt='Thumbnail' width={1920} height={1080} />
-					}
-					config={playerConfig}
-				/>
-			)}
+		<div className='bg-axolotl'>
+			<div className='aspect-h-9 aspect-w-16 -translate-y-6 translate-x-2 border-4 border-rope'>
+				{hasWindow && (
+					<ReactPlayer
+						className='react-player'
+						url={video}
+						width='100%'
+						height='100%'
+						light={
+							<Image src={thumbnail} alt={altText} width={1920} height={1080} />
+						}
+						config={playerConfig}
+					/>
+				)}
+			</div>
 		</div>
 	)
 }
