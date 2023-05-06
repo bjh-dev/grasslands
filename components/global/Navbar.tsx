@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 import { resolveHref } from '@/lib/sanity.links'
-import { CtaType } from '@/lib/types'
+import { LinkType } from '@/lib/types'
 
 interface NavbarProps {
-	menuItems?: CtaType[]
+	menuItems?: LinkType[]
 }
 
 export function Navbar({ menuItems }: NavbarProps) {
@@ -20,13 +20,13 @@ export function Navbar({ menuItems }: NavbarProps) {
 							target='_blank'
 							rel='norefereer noopener noreferrer'
 						>
-							{item.title}
+							{item.text}
 						</a>
 					)
 				}
 				return (
 					<Link href={href} key={i}>
-						{item.title || item.reference.title}
+						{item.text || item.reference.title}
 					</Link>
 				)
 			})}

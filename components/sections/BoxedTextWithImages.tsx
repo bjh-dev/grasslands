@@ -4,7 +4,7 @@ import { PortableTextBlock } from 'sanity'
 import SectionHeader from '@/components/shared/SectionHeader'
 import Wrapper from '@/components/shared/Wrapper'
 import { urlForImage } from '@/lib/sanity.image'
-import { CtaType, SimpleImageType, StyleType } from '@/lib/types'
+import { LinkType, SimpleImageType, StyleType } from '@/lib/types'
 
 type BoxWithImagesProps = {
 	_type: 'boxedTextWithImages'
@@ -12,7 +12,7 @@ type BoxWithImagesProps = {
 	title: string
 	heading: string
 	text: PortableTextBlock[]
-	cta: CtaType
+	cta: LinkType
 	images: SimpleImageType[]
 	sectionStyle?: StyleType
 }

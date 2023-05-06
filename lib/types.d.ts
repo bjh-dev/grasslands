@@ -91,7 +91,7 @@ export interface SettingsPayload extends Base {
 	email: string
 	phone: string
 	postalAddress: Address
-	footerLinks: LinkType[]
+	footerMenuItems: LinkType[]
 	footerText: PortableTextBlock[]
 	geolocation: Geolocation
 	siteLogo: SimpleImageType

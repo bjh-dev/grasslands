@@ -4,14 +4,14 @@ import SectionHeader from '@/components/shared/SectionHeader'
 import Video from '@/components/shared/Video'
 import Wrapper from '@/components/shared/Wrapper'
 import { urlForImage } from '@/lib/sanity.image'
-import { CtaType, SimpleImageType, StyleType } from '@/lib/types'
+import { LinkType, SimpleImageType, StyleType } from '@/lib/types'
 
 type TextWithVideoProps = {
 	title: string
 	heading?: string
 	text?: PortableTextBlock[]
 	sectionStyle: StyleType
-	cta?: CtaType
+	cta?: LinkType
 	video: {
 		videoUrl: string
 		videoThumbnail: SimpleImageType

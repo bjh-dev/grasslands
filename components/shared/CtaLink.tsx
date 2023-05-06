@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
-import { CtaType } from '@/lib/types'
+import { LinkType } from '@/lib/types'
 
-const CtaLink = (props: CtaType) => {
+const CtaLink = (props: LinkType) => {
 	const router = useRouter()
-	const { reference, title, url } = props
+	const { reference, text, url } = props
 	// console.log('ctaLinkProps: ', props)
 	if (reference) {
 		return (
@@ -16,7 +16,7 @@ const CtaLink = (props: CtaType) => {
 				href={reference.slug}
 				onClick={() => router.push(`/${reference.slug}`)}
 			>
-				{title || reference.title}
+				{text || reference.title}
 			</Link>
 		)
 	}
@@ -28,7 +28,7 @@ const CtaLink = (props: CtaType) => {
 			className='inline-block'
 		>
 			<div className='flex items-center space-x-4 rounded-md bg-axolotl px-6 py-3 font-sans text-sm tracking-wide text-satin-linen-200 hover:bg-axolotl-600'>
-				<div>{title}</div>
+				<div>{text}</div>
 				<FaExternalLinkAlt />
 			</div>
 		</a>

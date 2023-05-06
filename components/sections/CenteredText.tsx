@@ -2,7 +2,7 @@ import { PortableTextBlock } from 'sanity'
 
 import SectionHeader from '@/components/shared/SectionHeader'
 import Wrapper from '@/components/shared/Wrapper'
-import { CtaType, StyleType } from '@/lib/types'
+import { LinkType, StyleType } from '@/lib/types'
 
 type CenteredTextProps = {
 	_type: 'centeredText'
@@ -11,7 +11,7 @@ type CenteredTextProps = {
 	heading?: string
 	text: PortableTextBlock[]
 	sectionStyle: StyleType
-	cta?: CtaType
+	cta?: LinkType
 }
 
 const CenteredText = (props: CenteredTextProps) => {

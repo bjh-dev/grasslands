@@ -4,14 +4,14 @@ import { PortableTextBlock } from 'sanity'
 import CtaLink from '@/components/shared/CtaLink'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { SectionHeading, SectionTitle } from '@/components/shared/Typography'
-import { CtaType, StyleType } from '@/lib/types'
+import { LinkType, StyleType } from '@/lib/types'
 
 interface SectionHeaderProps {
 	title: string
 	heading?: string
 	text?: PortableTextBlock[]
 	style: StyleType
-	cta?: CtaType
+	cta?: LinkType
 	center?: boolean
 }
 
