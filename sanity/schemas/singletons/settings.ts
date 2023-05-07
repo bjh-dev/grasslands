@@ -1,11 +1,11 @@
-import { CogIcon } from '@sanity/icons'
+import { HiAdjustmentsHorizontal } from 'react-icons/hi2'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'settings',
 	title: 'Settings',
 	type: 'document',
-	icon: CogIcon,
+	icon: HiAdjustmentsHorizontal,
 	groups: [
 		{
 			title: 'Site',

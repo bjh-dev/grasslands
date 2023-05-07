@@ -1,11 +1,11 @@
-import { DocumentIcon } from '@sanity/icons'
+import { FaPenNib } from 'react-icons/fa'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'post',
-	title: 'Post',
+	title: 'Posts',
 	type: 'document',
-	icon: DocumentIcon,
+	icon: FaPenNib,
 	// Uncomment below to have edits publish automatically as you type
 	// liveEdit: true,
 	fields: [

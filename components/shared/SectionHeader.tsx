@@ -47,7 +47,8 @@ const SectionHeader = (props: SectionHeaderProps) => {
 						'tautara text-indian-khaki': style.backgroundColour == '#383637',
 						'ronchi text-tuatara-800': style.backgroundColour == '#F7C548',
 						'rope text-indian-khaki-50': style.backgroundColour == '#9B5A30',
-						'axolotl text-indian-khaki': style?.backgroundColour == '#48623E',
+						'axolotl text-indian-khaki-600':
+							style?.backgroundColour == '#48623E',
 					})}
 				>
 					<SectionHeading heading={heading ? heading : title} />

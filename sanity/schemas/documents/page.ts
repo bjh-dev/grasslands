@@ -1,11 +1,11 @@
-import { DocumentIcon } from '@sanity/icons'
+import { HiDocumentDuplicate } from 'react-icons/hi2'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	type: 'document',
 	name: 'page',
-	title: 'Page',
-	icon: DocumentIcon,
+	title: 'Pages',
+	icon: HiDocumentDuplicate,
 	groups: [
 		{
 			name: 'content',

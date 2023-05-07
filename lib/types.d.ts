@@ -19,6 +19,18 @@ type Geolocation = {
 	lng: number
 }
 
+interface IForm extends Base {
+	_type: 'form'
+	title: string
+	heading: string
+	mailchimpTag: string
+	text: PortableTextBlock[]
+	errorMessage: PortableTextBlock[]
+	successMessage: PortableTextBlock[]
+	buttonLabel: string
+	formFields: 'ADDRESS' | 'BDAY' | 'HOWHEARD' | 'MESSAGE' | 'PHONE'
+}
+
 type SocialLink = {
 	_type: 'socialLinks'
 	_key: string
@@ -42,7 +54,7 @@ type LinkType = {
 	_type: 'link'
 	_key: string
 	reference?: Reference
-	text?: string
+	title?: string
 	url: string
 }
 

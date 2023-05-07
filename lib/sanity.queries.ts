@@ -9,7 +9,7 @@ export const homePageQuery = groq`
       ...,
       cta {
         ...,
-       reference->{
+        reference->{
           ...,
           "slug": slug.current
         }
@@ -23,6 +23,11 @@ export const homePageQuery = groq`
           ...,
           "slug": slug.current
         }
+      },
+      formReference->{
+        ...,
+        _type,
+        title,
       }
     }
   }

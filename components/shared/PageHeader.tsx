@@ -111,7 +111,7 @@ const PageHeader = (props: PageHeaderProps) => {
 						</div>
 						<Divider style={pageHeaderStyle} />
 						<CustomPortableText value={description} />
-						{cta && (cta.reference || cta.url) && (
+						{cta && (
 							<div>
 								<CtaLink {...cta} />
 							</div>

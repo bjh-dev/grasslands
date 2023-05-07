@@ -25,7 +25,7 @@ const ContentSections = ({ content }: { content: any }) => {
 							case 'steps':
 								el = <Steps key={i} {...s} />
 								break
-							case 'form':
+							case 'formSection':
 								el = <Form key={i} {...s} />
 								break
 							default:

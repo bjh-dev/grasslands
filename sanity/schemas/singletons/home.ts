@@ -1,11 +1,11 @@
-import { HomeIcon } from '@sanity/icons'
+import { HiHomeModern } from 'react-icons/hi2'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'home',
 	title: 'Home',
 	type: 'document',
-	icon: HomeIcon,
+	icon: HiHomeModern,
 	// Uncomment below to have edits publish automatically as you type
 	// liveEdit: true,
 	groups: [
@@ -54,7 +54,7 @@ export default defineType({
 				{ type: 'boxedTextWithImages' },
 				{ type: 'textWithVideo' },
 				{ type: 'steps' },
-				{ type: 'form' },
+				{ type: 'formSection' },
 			],
 		}),
 		defineField({

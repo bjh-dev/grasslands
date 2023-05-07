@@ -20,13 +20,13 @@ export function Navbar({ menuItems }: NavbarProps) {
 							target='_blank'
 							rel='norefereer noopener noreferrer'
 						>
-							{item.text}
+							{item.title}
 						</a>
 					)
 				}
 				return (
 					<Link href={href} key={i}>
-						{item.text || item.reference.title}
+						{item.title || item.reference.title}
 					</Link>
 				)
 			})}

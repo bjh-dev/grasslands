@@ -26,6 +26,9 @@ export function CustomPortableText({
 			},
 		},
 		marks: {
+			strong: ({ children }) => {
+				return <strong className='font-bold'>{children}</strong>
+			},
 			link: ({ children, value }) => {
 				return (
 					<a

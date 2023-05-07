@@ -2,12 +2,30 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-const FormBuilder = () => {
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { IForm } from '@/lib/types'
+
+const FormBuilder = (props: IForm) => {
+	const {
+		mailchimpTag,
+		formFields,
+		buttonLabel,
+		errorMessage,
+		successMessage,
+	} = props
+
+	console.log('formBuiderProps: ', props)
+
 	const [formState, setFormState] = useState('idle')
 	const [FNAME, setFNAME] = useState('')
 	const [LNAME, setLNAME] = useState('')
 	const [email, setEmail] = useState('')
 	const [PHONE, setPHONE] = useState('')
+	const [BDAY, setBDAY] = useState('')
+	const [ADDR1, setADDR1] = useState('')
+	const [CITY, setCITY] = useState('')
+	const [STATE, setSTATE] = useState('VIC')
+	const [ZIP, setZIP] = useState('')
 	const [MESSAGE, setMESSAGE] = useState('')
 	const [HOWHEARD, setHOWHEARD] = useState('none')
 	const [error, setError] = useState(null)
@@ -15,21 +33,36 @@ const FormBuilder = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		setFormState('loading')
+		const formattedMonth = new Date(BDAY).getMonth()
+		const formattedDay = new Date(BDAY).getDate()
+		const formattedBirthday = `${formattedMonth}/${formattedDay}`
+
 		try {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const response = await axios.post('/api/handle-submit', {
+				mailchimpTag,
 				FNAME,
 				LNAME,
 				email,
 				PHONE,
+				formattedBirthday,
 				HOWHEARD,
 				MESSAGE,
+				ADDR1,
+				CITY,
+				STATE,
+				ZIP,
 			})
 			setFormState('success')
 			setFNAME('')
 			setLNAME('')
 			setEmail('')
 			setPHONE('')
+			setADDR1('')
+			setCITY('')
+			setSTATE('')
+			setZIP('')
+			setBDAY('')
 			setHOWHEARD('')
 			setMESSAGE('')
 		} catch (e) {
@@ -45,9 +78,13 @@ const FormBuilder = () => {
 			{formState !== 'success' && (
 				<>
 					<div className='col-span-2 md:col-span-1'>
-						<label htmlFor='FNAME'>
+						<label
+							className='text-xs uppercase text-indian-khaki-50'
+							htmlFor='FNAME'
+						>
+							First Name
 							<input
-								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300'
+								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
 								type='text'
 								name='FNAME'
 								id='FNAME'
@@ -58,9 +95,13 @@ const FormBuilder = () => {
 						</label>
 					</div>
 					<div className='col-span-2 md:col-span-1'>
-						<label htmlFor='LNAME'>
+						<label
+							className='text-xs uppercase text-indian-khaki-50'
+							htmlFor='LNAME'
+						>
+							Last Name
 							<input
-								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300'
+								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
 								type='text'
 								name='LNAME'
 								id='LNAME'
@@ -71,9 +112,13 @@ const FormBuilder = () => {
 						</label>
 					</div>
 					<div className='col-span-2'>
-						<label htmlFor='email'>
+						<label
+							className='text-xs uppercase text-indian-khaki-50'
+							htmlFor='email'
+						>
+							Email
 							<input
-								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300'
+								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
 								type='email'
 								name='email'
 								id='email'
@@ -83,93 +128,201 @@ const FormBuilder = () => {
 							/>
 						</label>
 					</div>
-					<div className='col-span-2'>
-						<label htmlFor='PHONE'>
-							<input
-								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300'
-								type='tel'
-								name='PHONE'
-								id='PHONE'
-								placeholder='Your Contact Number'
-								value={PHONE}
-								onChange={(e) => setPHONE(e.target.value)}
+					{formFields.includes('PHONE') && (
+						<div className='col-span-2'>
+							<label
+								className='text-xs uppercase text-indian-khaki-50'
+								htmlFor='PHONE'
+							>
+								Contact Number
+								<input
+									className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+									type='tel'
+									name='PHONE'
+									id='PHONE'
+									placeholder='Your Contact Number'
+									value={PHONE}
+									onChange={(e) => setPHONE(e.target.value)}
+								/>
+							</label>
+						</div>
+					)}
+					{formFields.includes('ADDRESS') && (
+						<fieldset className='col-span-2 grid w-full grid-cols-1 gap-x-2 gap-y-4 rounded-lg border border-axolotl-400 p-3 lg:grid-cols-3'>
+							<legend className='text-base text-indian-khaki-50'>
+								Your Address
+							</legend>
+							<div className='col-span-3'>
+								<label
+									className='text-xs uppercase text-indian-khaki-50'
+									htmlFor='ADDRESS'
+								>
+									Address
+									<input
+										className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+										type='text'
+										name='ADDR1'
+										id='ADDR1'
+										value={ADDR1}
+										placeholder='123 Smith Street'
+										onChange={(e) => setADDR1(e.target.value)}
+									/>
+								</label>
+							</div>
+							<div className='col-span-3 lg:col-span-1'>
+								<label
+									className='text-xs uppercase text-indian-khaki-50'
+									htmlFor='CITY'
+								>
+									Suburb
+									<input
+										className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+										type='text'
+										name='CITY'
+										id='CITY'
+										value={CITY}
+										placeholder='St Albans'
+										onChange={(e) => setCITY(e.target.value)}
+									/>
+								</label>
+							</div>
+							<div className='col-span-3 lg:col-span-1'>
+								<label
+									className='text-xs uppercase text-indian-khaki-50'
+									htmlFor='STATE'
+								>
+									State
+									<select
+										className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+										name='STATE'
+										id='STATE'
+										value={STATE}
+										onChange={(e) => setSTATE(e.target.value)}
+									>
+										<option value='ACT'>ACT</option>
+										<option value='NSW'>NSW</option>
+										<option value='NT'>NT</option>
+										<option value='QLD'>QLD</option>
+										<option value='SA'>SA</option>
+										<option value='TAS'>TAS</option>
+										<option value='VIC'>VIC</option>
+										<option value='WA'>WA</option>
+									</select>
+								</label>
+							</div>
+							<div className='col-span-3 lg:col-span-1'>
+								<label
+									className='text-xs uppercase text-indian-khaki-50'
+									htmlFor='ZIP'
+								>
+									Postcode
+									<input
+										className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+										type='number'
+										name='ZIP'
+										id='ZIP'
+										value={ZIP}
+										placeholder='3000'
+										onChange={(e) => setZIP(e.target.value)}
+									/>
+								</label>
+							</div>
+						</fieldset>
+					)}
+					{formFields.includes('BDAY') && (
+						<div className='col-span-2'>
+							<label
+								className='text-xs uppercase text-indian-khaki-50'
+								htmlFor='BDAY'
+							>
+								When is your birthday?
+								<input
+									className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+									type='date'
+									name='BDAY'
+									id='BDAY'
+									value={BDAY}
+									placeholder='BDAY'
+									onChange={(e) => setBDAY(e.target.value)}
+								/>
+							</label>
+						</div>
+					)}
+					{formFields.includes('HOWHEARD') && (
+						<div className='col-span-2'>
+							<label
+								className='text-xs uppercase text-indian-khaki-50'
+								htmlFor='HOWHEARD'
+							>
+								How did you hear about us?
+								<select
+									className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+									name='HOWHEARD'
+									id='HOWHEARD'
+									required
+									value={HOWHEARD}
+									onChange={(e) => setHOWHEARD(e.target.value)}
+								>
+									<option className='text-tuatara-300' value='0'>
+										--&nbsp;&nbsp;How did you hear about us?&nbsp;&nbsp;--
+									</option>
+									<option value='Someone who attends Inner West Church'>
+										Someone who attends Inner West Church
+									</option>
+									<option value='Social Media'>Social Media</option>
+									<option value='Google Search'>Google Search</option>
+									<option value='Someone from another church'>
+										Someone from another church
+									</option>
+									<option value='Friend or Family'>Friend or Family</option>
+									<option value='Another Websit'>Another Websit</option>
+								</select>
+							</label>
+						</div>
+					)}
+					{formFields.includes('MESSAGE') && (
+						<div className='col-span-2'>
+							<label
+								className='text-xs uppercase text-indian-khaki-50'
+								htmlFor='MESSAGE'
+							>
+								Send a message
+							</label>
+							<textarea
+								className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300 outline-rope focus:border-rope focus:ring-rope'
+								name='MESSAGE'
+								id='MESSAGE'
+								placeholder={`Send a message, ask a question, make a request or leave a comment. We're here to serve`}
+								rows={5}
+								value={MESSAGE}
+								onChange={(e) => setMESSAGE(e.target.value)}
 							/>
-						</label>
-					</div>
-					<div className='col-span-2'>
-						<label htmlFor='HOWHEARD'></label>
-						<select
-							className='w-full rounded-md py-3 text-sm text-tuatara-800 disabled:text-tuatara-300 disabled:placeholder-tuatara-300'
-							name='HOWHEARD'
-							id='HOWHEARD'
-							required
-							value={HOWHEARD}
-							onChange={(e) => setHOWHEARD(e.target.value)}
-						>
-							<option className='text-tuatara-300' value='0'>
-								--&nbsp;&nbsp;How did you hear about us?&nbsp;&nbsp;--
-							</option>
-							<option value='Someone who attends Inner West Church'>
-								Someone who attends Inner West Church
-							</option>
-							<option value='Social Media'>Social Media</option>
-							<option value='Google Search'>Google Search</option>
-							<option value='Someone from another church'>
-								Someone from another church
-							</option>
-							<option value='Friend or Family'>Friend or Family</option>
-							<option value='Another Websit'>Another Websit</option>
-						</select>
-					</div>
-					<div className='col-span-2'>
-						<label htmlFor='MESSAGE'></label>
-						<textarea
-							className='w-full rounded-md py-3 text-sm text-tuatara-800 placeholder-tuatara-300'
-							name='MESSAGE'
-							id='MESSAGE'
-							placeholder='Message'
-							rows={5}
-							value={MESSAGE}
-							onChange={(e) => setMESSAGE(e.target.value)}
-						/>
-					</div>
+						</div>
+					)}
 					<div className='col-span-2'>
 						<div className='flex justify-end'>
 							<button
-								className='rounded-md bg-indian-khaki px-6 py-2 text-sm font-bold text-tuatara-800 placeholder-tuatara-300'
+								className='rounded-md bg-indian-khaki px-6 py-2 text-sm font-bold text-tuatara-800 placeholder-tuatara-300 outline-rope transition-all duration-300 ease-in-out hover:bg-indian-khaki-700 focus:border-rope focus:ring-rope'
 								type='submit'
-								disabled={formState === 'Loading'}
+								disabled={formState === 'loading'}
 								onClick={handleSubmit}
 							>
-								Submit
+								{buttonLabel || 'Submit'}
 							</button>
 						</div>
 					</div>
 				</>
 			)}
-			<div>
+			<div className='col-span-2'>
 				{formState === 'error' && (
 					<div className='mt-6 border border-r-ronchi px-5 py-2 text-ronchi'>
-						<p className='py-4 text-2xl font-bold'>
-							There was an error with you submission.
-						</p>
-						<p className='text-sm'>See the datails below for information</p>
+						<CustomPortableText value={errorMessage} />
 						<p className='text-sm'>{error}</p>
 					</div>
 				)}
 				{formState === 'success' && (
 					<div className='mt-6 text-tuatara-50'>
-						<p className='py-4 text-2xl font-bold'>
-							Thanks for making contact!
-						</p>
-						<p className='mb-3 text-sm'>
-							We&apos;ve recieved your message and look forward to meeting you.
-						</p>
-						<p className='mb-3 text-sm'>
-							If you&apos;re message has a question or required a response,
-							we&apos;ll do our best to make contact before your visit.
-						</p>
-						<p className='mb-3 text-sm'>God bless you!</p>
+						<CustomPortableText value={successMessage} />
 					</div>
 				)}
 			</div>
