@@ -7,7 +7,7 @@ export function Page({ data }: { data: PagePayload }) {
 	const { pageHeader } = data || {}
 	return (
 		<div>
-			<div className='mb-14'>
+			<div>
 				{/* Header */}
 				<PageHeader {...pageHeader} />
 
