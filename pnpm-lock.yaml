@@ -74,8 +74,8 @@ dependencies:
     specifier: ^5.3.9
     version: 5.3.9(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   suspend-react:
-    specifier: ^0.0.9
-    version: 0.0.9(react@18.2.0)
+    specifier: ^0.1.0
+    version: 0.1.0(react@18.2.0)
 
 devDependencies:
   '@commitlint/cli':
@@ -7348,6 +7348,14 @@ packages:
 
   /suspend-react@0.0.9(react@18.2.0):
     resolution: {integrity: sha512-668Pxy4z54fhjpnPqw6olj3vvpV03VywFNXazyNSYSTuHaRw3NJJjO5l8R49AUk5fMTkJXGVGaaVSgdaO01S3w==}
+    peerDependencies:
+      react: '>=17.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /suspend-react@0.1.0(react@18.2.0):
+    resolution: {integrity: sha512-J+dYBrK1myX+EpijscT4op5M4C7gMf+k1D38dLz4JivXzVX5T1HqRdAdrMalYVcnf4UWI6GfTMH1uoU3jGLu1g==}
     peerDependencies:
       react: '>=17.0'
     dependencies:
