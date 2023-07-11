@@ -166,8 +166,8 @@ devDependencies:
     specifier: 0.2.2
     version: 0.2.2(prettier@2.8.7)
   prettier-plugin-tailwindcss:
-    specifier: ^0.2.7
-    version: 0.2.7(prettier-plugin-css-order@1.3.0)(prettier-plugin-organize-attributes@0.0.5)(prettier-plugin-organize-imports@3.2.2)(prettier-plugin-style-order@0.2.2)(prettier@2.8.7)
+    specifier: ^0.3.0
+    version: 0.3.0(prettier-plugin-css-order@1.3.0)(prettier-plugin-organize-attributes@0.0.5)(prettier-plugin-organize-imports@3.2.2)(prettier-plugin-style-order@0.2.2)(prettier@2.8.7)
   tailwindcss:
     specifier: ^3.3.1
     version: 3.3.1(postcss@8.4.21)(ts-node@10.9.1)
@@ -6202,12 +6202,11 @@ packages:
       resolve-cwd: 3.0.0
     dev: true
 
-  /prettier-plugin-tailwindcss@0.2.7(prettier-plugin-css-order@1.3.0)(prettier-plugin-organize-attributes@0.0.5)(prettier-plugin-organize-imports@3.2.2)(prettier-plugin-style-order@0.2.2)(prettier@2.8.7):
-    resolution: {integrity: sha512-jQopIOgjLpX+y8HeD56XZw7onupRTC0cw7eKKUimI7vhjkPF5/1ltW5LyqaPtSyc8HvEpvNZsvvsGFa2qpa59w==}
+  /prettier-plugin-tailwindcss@0.3.0(prettier-plugin-css-order@1.3.0)(prettier-plugin-organize-attributes@0.0.5)(prettier-plugin-organize-imports@3.2.2)(prettier-plugin-style-order@0.2.2)(prettier@2.8.7):
+    resolution: {integrity: sha512-009/Xqdy7UmkcTBpwlq7jsViDqXAYSOMLDrHAdTMlVZOrKfM2o9Ci7EMWTMZ7SkKBFTG04UM9F9iM2+4i6boDA==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
-      '@prettier/plugin-php': '*'
       '@prettier/plugin-pug': '*'
       '@shopify/prettier-plugin-liquid': '*'
       '@shufo/prettier-plugin-blade': '*'
@@ -6217,6 +6216,7 @@ packages:
       prettier-plugin-css-order: '*'
       prettier-plugin-import-sort: '*'
       prettier-plugin-jsdoc: '*'
+      prettier-plugin-marko: '*'
       prettier-plugin-organize-attributes: '*'
       prettier-plugin-organize-imports: '*'
       prettier-plugin-style-order: '*'
@@ -6224,8 +6224,6 @@ packages:
       prettier-plugin-twig-melody: '*'
     peerDependenciesMeta:
       '@ianvs/prettier-plugin-sort-imports':
-        optional: true
-      '@prettier/plugin-php':
         optional: true
       '@prettier/plugin-pug':
         optional: true
@@ -6242,6 +6240,8 @@ packages:
       prettier-plugin-import-sort:
         optional: true
       prettier-plugin-jsdoc:
+        optional: true
+      prettier-plugin-marko:
         optional: true
       prettier-plugin-organize-attributes:
         optional: true
